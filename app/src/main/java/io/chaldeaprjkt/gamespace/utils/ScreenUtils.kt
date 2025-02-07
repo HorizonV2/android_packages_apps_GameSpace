@@ -84,7 +84,7 @@ class ScreenUtils @Inject constructor(private val context: Context) {
         remoteRecording = null
         if (isGestureLocked) {
             Settings.System.putInt(context.contentResolver,
-                    Settings.System.LOCK_EDGE_BACK_GESTURE, 0)
+                    "lock_gesture_status", 0)
             isGestureLocked = false
         }
     }
@@ -112,7 +112,7 @@ class ScreenUtils @Inject constructor(private val context: Context) {
         get() = isGestureLocked
         set(enable) {
             Settings.System.putInt(context.contentResolver,
-                    Settings.System.LOCK_EDGE_BACK_GESTURE, if (enable) 1 else 0)
+                    "lock_gesture_status", if (enable) 1 else 0)
             field = enable
             isGestureLocked = enable
         }
